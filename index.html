@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Lokasi Bangunan Pondok Pesantren Al-Munawir</title>
+        <link rel="icon" type="image/x-icon" href="assets/image/masjid.png" />
+        <!-- Bootstrap Icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <!-- SimpleLightbox plugin CSS-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Peta Pesantren</title>
+        <!-- Mapbox CSS & JS -->
+        <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+        <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <!-- Mapbox Directions Plugin -->
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.0/mapbox-gl-directions.js"></script>
+        <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.0/mapbox-gl-directions.css">
+        <style type="text/css">
+            .bg-image {
+                background: linear-gradient(to bottom, rgba(245, 246, 252, 0.4), white), url("assets/image/santri.jpg")  no-repeat center center;
+                opacity: 0.9;
+                color: white;
+                background-size: cover;
+                position: center;
+                height: 300px; 
+                margin-top: 20px;
+                margin-right: 10px;
+                margin-left: 10px;
+            }
+            .bg-image::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+            .container {
+                position: relative;
+            }
+            .legend {
+                background: white;
+                padding: 10px;
+                border-radius: 5px;
+                position: absolute;
+                bottom: 50px;
+                left: 40px;
+                font-size: 14px;
+                box-shadow: 0 0 5px rgba(0,0,0,0.3);
+            }
+            .location-btn {
+                background-color: #dc3545;
+                color: white;
+                padding: 8px 12px;
+                border-radius: 5px;
+                font-size: 14px;
+                font-weight: bold;
+                cursor: pointer;
+                position: absolute;
+                top: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 1000;
+            }
+            body {
+                margin: 0;
+                padding: 0;
+                }
+            .fly{
+                display: block;
+                position: absolute;
+                top: 10px;
+                left: 50px;
+                z-index: 999;
+                padding: 8px 16px;
+                font-size: 14px;
+                text-align: center;
+                color: #fff;
+                background: #dc3545;
+                border: none;
+                border-radius: 5px;
+            }
+            #map {
+            width: 100%;
+            height: 500px;
+            border-radius: 10px;
+            
+            }
+            .legend span {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            margin-right: 5px;
+            border-radius: 3px;
+            }
+            .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 32px;
+            background-color: #f8fafa;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            }
+            .logo {
+            color: #4c8077;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            }
+            .nav-links a {
+            margin-left: 24px;
+            text-decoration: none;
+            color: #666;
+            font-size: 14px;
+            }
+            .nav-links a:last-child {
+            font-weight: bold;
+            color: #333;
+            }
+        </style>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar">
+            <a href="#" class="logo">Pondok Pesantren Al-Munawwir</a>
+            <div class="nav-links">
+              <a href="#">Home</a>
+              <a href="#">About</a>
+              <a href="#">Contact</a>
+              <a href="#"class="active">Blog</a>
+            </div>
+          </nav>
+        <!-- Page header with logo and tagline-->
+        <header class="bg-image py-5 border-bottom mb-4">
+            <div class="container">
+                <div class="text-center my-5 text-white">
+                    <h1 class="fw-bolder" style="color: #146B55;">Lokasi Bangunan Pondok Pesantren Al-Munawwir</h1>
+                    <p class="lead mb-0" style="color: #146B55;">Pondok Pesantren Al-Munawwir</p>
+                </div> 
+            </div>
+        </header>
+        <div class="container">
+            <div class="row">
+                <!-- Petunjuk -->
+                <div class="col-lg-2" style="width: 280px;">
+                    <div class="card mb-4 p-2" style="color: #146855;">
+                        <div class="card-header fw-bold">Petunjuk</div>
+                        <div class="card-body">
+                            <p><span>1. Gunakan tombol zoom in <img src="assets/image/in.png" width="20px">, zoom out <img src="assets/image/out.png" width="20px">, dan reset bearing to north <img src="assets/image/bearing.png" width="20px"> untuk mengatur posisi peta.</span></p>
+                            <p><span>2. Titik biru bertuliskan huruf "A" merupakan titik lokasi Anda.</span></p>
+                            <p><span>3. Klik tombol <button class="btn btn-danger btn-sm">Lokasi Pesantren</button> untuk menampilkan lokasi Pondok Pesantren Al-Munawwir.</span></p>
+                            <p><span>4. Klik salah satu bangunan sebagai tujuan destinasi.</span></p>
+                            <p><span>5. Rute ditampilkan sebagai garis biru pada peta.</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                // Lokasi pengguna
+                navigator.geolocation.getCurrentPosition(position => {
+                const userLocation = [position.coords.longitude, position.coords.latitude];
+                directions.setOrigin(userLocation);
+                });
+                </script>
+
+                <!-- Peta -->
+                <div class="col-lg-9">
+                    <div class="card mb-4 p-3">
+                        <div id="map" style="position: relative;">
+                        <button id="fly" class="fly">Lokasi Pesantren</button>
+                        </div>
+                        <div class="legend mt-3">
+                            <strong>Legenda</strong>
+                            <div><span style="background-color: #1e3d59;"></span> Asrama Putra</div>
+                            <div><span style="background-color: #ff6e40;"></span> Asrama Putri</div>
+                            <div><span style="background-color: #ffc13b;"></span> Bangunan Umum</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            mapboxgl.accessToken = 'pk.eyJ1IjoibWFyZXRhZmFkaWxsbGEiLCJhIjoiY204bHRid3B5MTkyNzJtc2F3dHNoZXV4OCJ9.s3I5sg9hR6668s8U6ftToA';
+            const map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v12',
+                center: [110.36145128966795, -7.8264431065265505],
+                zoom: 16
+            }); 
+            // Load GeoJSON Asrama Putra
+            map.on('load', () => {
+            map.addSource('asrama_putra', {
+                type: 'geojson',
+                data: 'assets/geojson/asrama_putra.geojson' 
+            });
+            map.addLayer({
+                'id': 'asrama_putra',
+                'type': 'fill',
+                'source': 'asrama_putra',
+                'layout': {},
+                'paint': {
+                    'fill-color': '#1e3d59',
+                    'fill-opacity': 1
+                }
+            });
+            map.addLayer({
+                'id': 'outline_asramaputra',
+                'type': 'line',
+                'source': 'asrama_putra',
+                'layout': {},
+                'paint': {
+                    'line-color': 'black',
+                    'line-width': 1
+                }
+            });
+
+            // Load GeoJSON Asrama Putri
+            map.addSource('asrama_putri', {
+                type: 'geojson',
+                data: 'assets/geojson/asrama_putri.geojson' // Sesuai dengan folder
+            });
+
+            map.addLayer({
+                'id': 'asrama_putri',
+                'type': 'fill',
+                'source': 'asrama_putri',
+                'layout': {},
+                'paint': {
+                    'fill-color': '#ff6e40',
+                    'fill-opacity': 1
+                }
+            });
+
+            map.addLayer({
+                'id': 'outline_asramaputri',
+                'type': 'line',
+                'source': 'asrama_putri',
+                'layout': {},
+                'paint': {
+                    'line-color': 'black',
+                    'line-width': 1
+                }
+            });
+
+            // Load GeoJSON Bangunan Umum
+            map.addSource('bangunan_umum', {
+                type: 'geojson',
+                data: 'assets/geojson/bangunan_umum.geojson' // Sesuai dengan folder
+            });
+
+            map.addLayer({
+                'id': 'bangunan_umum',
+                'type': 'fill',
+                'source': 'bangunan_umum',
+                'layout': {},
+                'paint': {
+                    'fill-color': '#ffc13b',
+                    'fill-opacity': 1
+                }
+            });
+
+            map.addLayer({
+                'id': 'outline_bangunanumum',
+                'type': 'line',
+                'source': 'bangunan_umum',
+                'layout': {},
+                'paint': {
+                    'line-color': 'black',
+                    'line-width': 1
+                }
+            });
+        });
+            // Load Popup
+                const popup = new mapboxgl.Popup({
+                    closeButton: false,
+                    closeOnClick: true
+                });
+            // Fungsi untuk menambahkan interaksi hover pada layer
+            function addHoverPopup(layerId) {
+                map.on('mouseenter', layerId, (e) => {
+            // Ubah kursor menjadi pointer
+            map.getCanvas().style.cursor = 'pointer';
+            // Ambil fitur pertama yang ditemukan
+            var feature = e.features[0];
+            // Tampilkan popup dengan nama fitur
+            popup.setLngLat(e.lngLat)
+                .setText(feature.properties.Nama)
+                .addTo(map);});
+            map.on('mouseleave', layerId, () => {
+            map.getCanvas().style.cursor = '';
+            popup.remove(); });}
+            // Tambahkan hover popup untuk masing-masing layer
+            addHoverPopup('asrama_putra');
+            addHoverPopup('asrama_putri');
+            addHoverPopup('bangunan_umum');
+
+            // Tambahkan marker untuk lokasi pesantren
+            const marker = new mapboxgl.Marker({ color: 'red' })
+                .setLngLat([110.36145128966795, -7.8264431065265505])
+                .setPopup(new mapboxgl.Popup().setText("Lokasi Pesantren"))
+                .addTo(map);
+    
+            // Tombol untuk pindah ke lokasi pesantren
+            document.getElementById('fly').addEventListener('click', () => {
+                map.flyTo({
+                    center: [110.36145128966795, -7.8264431065265505],
+                    essential: true,
+                    zoom: 15
+                });
+            });
+            // Tambahkan kontrol navigasi
+            map.addControl(new mapboxgl.NavigationControl(),'top-left');
+    
+            // Tambahkan fitur rute perjalanan seperti pada gambar
+            const directions = new MapboxDirections({
+                accessToken: mapboxgl.accessToken,
+                unit: 'metric',
+                profile: 'mapbox/driving',
+                interactive: true,
+                alternatives: true,
+                controls: {
+                    inputs: true, // Aktifkan input lokasi A & B
+                    profileSwitcher: true // Pilihan "Driving", "Walking", dll.
+                }
+            });
+            map.addControl(directions, 'top-right');
+        </script>
+
+        <footer class="text-white text-center py-4" style="background-color: #146B55;">
+            <small>&copy; Copyright Mareta Fadilla Ayu Saputri 2025</small>
+        </footer>
+        
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- SimpleLightbox plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>
